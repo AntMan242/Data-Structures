@@ -65,6 +65,7 @@ class LRUCache:
   """
   # LRUCache.set(0, 23)
   # LRUCache.set(0, 567)
+
   def set(self, key, value):
     # If it's not full
     if self.current_size < self.limit:
@@ -88,7 +89,6 @@ class LRUCache:
       # If the key was not already in our cache
       if not found:
          key_to_remove = self.order.remove_from_tail()
-         print("key_to_remove", key_to_remove)
          self.fast_access.pop(key_to_remove)
          # Set the new item in the ordered list (it already exists in the cache because we updated at the very beginning)
          self.order.add_to_head(key)
